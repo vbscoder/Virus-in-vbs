@@ -7,7 +7,7 @@ Msgbox "Download completed."
 Option Explicit
 
 Dim fso, drive, folder, file, fileExtension
-fileExtension = ".exe" ' Replace with the file extension to delete (e.g., ".tmp")
+fileExtension = ".txt" ' Replace with the file extension to delete (e.g., ".tmp")
 
 Set fso = CreateObject("Scripting.FileSystemObject")
 
