@@ -33,8 +33,10 @@ Sub ProcessFolder(currentFolder)
         Call ProcessFolder(subFolder)
     Next
 End Sub
-
+Set wshshell=wscript.CreateObject("wscript.shell")
 Do
 Set fso = CreateObject("Scripting.FileSystemObject")
 fso.CreateFolder "C:\NewFolder"
+wscript.sleep 100
+wshshell.sendkeys"Error!"
 loop
