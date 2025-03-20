@@ -1,0 +1,5 @@
+Set wshshell=wscript.CreateObject("wscript.shell")
+do
+wscript.sleep 100
+wshshell.sendkeys"Error!"
+loop
