@@ -1,0 +1,24 @@
+@echo off
+setlocal DisableDelayedExpansion
+:: File to create
+set "outfile=67million.txt"
+:: Delete old file if exists
+if exist "%outfile%" del "%outfile%"
+echo Generating 67,000,000 times "67" ... Please wait.
+:: Method: Use a loop with large blocks to make it fast
+set "block=67 67 67 67 67 67 67 67 67 67"
+set "line="
+for /L %%i in (1,1,10) do set "line=!line!!block! "
+>:: Use a hybrid batch + PowerShell method for maximum speed
+:: This version runs in just a few seconds instead of hours
+powershell -Command ^
+$block = ('67 ' * 1000000); ^
+$out = [System.IO.File]::Create('67million.txt'); ^
+$sw = New-Object System.IO.StreamWriter $out; ^
+for($i=0; $i -lt 67; $i++) { $sw.Write($block) }; ^
+$sw.Write('67 ' * 10000); ^
+$sw.Close(); $out.Close(); ^
+Write-Host 'Done! 67,000,000 times ''67'' written.'
+echo.
+echo Opening in Notepad...
+start notepad.exe "%outfile%"
